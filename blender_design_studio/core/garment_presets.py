@@ -282,6 +282,415 @@ def _dress_skirt() -> PatternPiece:
     return _make_piece("dress_skirt", verts, edges)
 
 
+# ---------- Cardigan Template ----------
+
+def _cardigan_left_front() -> PatternPiece:
+    """Left front panel of a cardigan (open-front)."""
+    verts = [
+        (0.0, 0.0), (0.15, 0.0), (0.15, 0.05), (0.17, 0.12),
+        (0.17, 0.48), (0.13, 0.52), (0.08, 0.53), (0.0, 0.52),
+        (-0.02, 0.12), (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 0),
+    ]
+    return _make_piece("cardigan_left_front", verts, edges)
+
+
+def _cardigan_back() -> PatternPiece:
+    """Back panel of a cardigan."""
+    verts = [
+        (0.0, 0.0), (0.30, 0.0), (0.30, 0.05), (0.33, 0.12),
+        (0.33, 0.48), (0.28, 0.52), (0.18, 0.54), (0.12, 0.54),
+        (0.05, 0.52), (0.0, 0.48), (-0.03, 0.12), (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 0),
+    ]
+    return _make_piece("cardigan_back", verts, edges)
+
+
+def _cardigan_sleeve() -> PatternPiece:
+    """Long sleeve for a cardigan."""
+    verts = [
+        (0.0, 0.0), (0.17, 0.0), (0.19, 0.05), (0.18, 0.36),
+        (0.14, 0.38), (0.04, 0.38), (0.0, 0.36), (-0.02, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0),
+    ]
+    return _make_piece("cardigan_sleeve", verts, edges)
+
+
+# ---------- Crop Top Template ----------
+
+def _crop_top_front() -> PatternPiece:
+    """Front panel of a crop top."""
+    verts = [
+        (0.0, 0.0), (0.24, 0.0), (0.24, 0.04), (0.26, 0.08),
+        (0.26, 0.22), (0.22, 0.26), (0.16, 0.28), (0.10, 0.28),
+        (0.04, 0.26), (0.0, 0.22), (-0.02, 0.08), (0.0, 0.04),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 0),
+    ]
+    return _make_piece("crop_top_front", verts, edges)
+
+
+def _crop_top_back() -> PatternPiece:
+    """Back panel of a crop top."""
+    verts = [
+        (0.0, 0.0), (0.24, 0.0), (0.24, 0.04), (0.26, 0.08),
+        (0.26, 0.22), (0.22, 0.26), (0.16, 0.29), (0.10, 0.29),
+        (0.04, 0.26), (0.0, 0.22), (-0.02, 0.08), (0.0, 0.04),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 0),
+    ]
+    return _make_piece("crop_top_back", verts, edges)
+
+
+# ---------- Pencil Skirt Template ----------
+
+def _pencil_skirt_front() -> PatternPiece:
+    """Front panel of a pencil skirt."""
+    verts = [
+        (0.0, 0.0), (0.14, 0.0), (0.15, 0.25), (0.14, 0.5),
+        (0.13, 0.55), (0.07, 0.56), (0.0, 0.55), (-0.01, 0.5),
+        (-0.01, 0.25),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 0),
+    ]
+    return _make_piece("pencil_skirt_front", verts, edges)
+
+
+def _pencil_skirt_back() -> PatternPiece:
+    """Back panel of a pencil skirt."""
+    verts = [
+        (0.0, 0.0), (0.14, 0.0), (0.15, 0.25), (0.14, 0.5),
+        (0.13, 0.56), (0.07, 0.57), (0.0, 0.56), (-0.01, 0.5),
+        (-0.01, 0.25),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 0),
+    ]
+    return _make_piece("pencil_skirt_back", verts, edges)
+
+
+# ---------- Trench Coat Template ----------
+
+def _trench_front() -> PatternPiece:
+    """Front panel of a trench coat."""
+    verts = [
+        (0.0, 0.0), (0.34, 0.0), (0.34, 0.05), (0.38, 0.14),
+        (0.38, 0.65), (0.34, 0.70), (0.22, 0.73), (0.17, 0.73),
+        (0.10, 0.73), (0.0, 0.70), (-0.04, 0.65), (-0.04, 0.14),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("trench_front", verts, edges)
+
+
+def _trench_back() -> PatternPiece:
+    """Back panel of a trench coat."""
+    verts = [
+        (0.0, 0.0), (0.36, 0.0), (0.36, 0.05), (0.40, 0.14),
+        (0.40, 0.65), (0.36, 0.70), (0.24, 0.74), (0.18, 0.75),
+        (0.12, 0.74), (0.0, 0.70), (-0.04, 0.65), (-0.04, 0.14),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("trench_back", verts, edges)
+
+
+def _trench_sleeve() -> PatternPiece:
+    """Long sleeve for a trench coat."""
+    verts = [
+        (0.0, 0.0), (0.20, 0.0), (0.22, 0.05), (0.21, 0.42),
+        (0.16, 0.44), (0.04, 0.44), (0.0, 0.42), (-0.02, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0),
+    ]
+    return _make_piece("trench_sleeve", verts, edges)
+
+
+# ---------- Polo Shirt Template ----------
+
+def _polo_front() -> PatternPiece:
+    """Front panel of a polo shirt."""
+    verts = [
+        (0.0, 0.0), (0.28, 0.0), (0.28, 0.05), (0.32, 0.10),
+        (0.32, 0.42), (0.28, 0.47), (0.18, 0.49), (0.14, 0.49),
+        (0.08, 0.49), (0.0, 0.47), (-0.04, 0.42), (-0.04, 0.10),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("polo_front", verts, edges)
+
+
+def _polo_back() -> PatternPiece:
+    """Back panel of a polo shirt."""
+    verts = [
+        (0.0, 0.0), (0.28, 0.0), (0.28, 0.05), (0.32, 0.10),
+        (0.32, 0.42), (0.28, 0.47), (0.18, 0.50), (0.14, 0.51),
+        (0.08, 0.50), (0.0, 0.47), (-0.04, 0.42), (-0.04, 0.10),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("polo_back", verts, edges)
+
+
+def _polo_sleeve() -> PatternPiece:
+    """Short sleeve for a polo shirt."""
+    verts = [
+        (0.0, 0.0), (0.18, 0.0), (0.20, 0.05), (0.18, 0.18),
+        (0.14, 0.20), (0.04, 0.20), (0.0, 0.18), (-0.02, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0),
+    ]
+    return _make_piece("polo_sleeve", verts, edges)
+
+
+def _polo_collar() -> PatternPiece:
+    """Collar piece for a polo shirt."""
+    verts = [
+        (0.0, 0.0), (0.28, 0.0), (0.28, 0.05), (0.0, 0.05),
+    ]
+    edges = [(0, 1), (1, 2), (2, 3), (3, 0)]
+    return _make_piece("polo_collar", verts, edges)
+
+
+# ---------- Wrap Dress Template ----------
+
+def _wrap_dress_left() -> PatternPiece:
+    """Left wrap panel for a wrap dress."""
+    verts = [
+        (0.0, 0.0), (0.30, 0.0), (0.32, 0.15), (0.30, 0.55),
+        (0.25, 0.60), (0.15, 0.62), (0.08, 0.60), (0.0, 0.55),
+        (-0.02, 0.15),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 0),
+    ]
+    return _make_piece("wrap_dress_left", verts, edges)
+
+
+def _wrap_dress_right() -> PatternPiece:
+    """Right wrap panel for a wrap dress."""
+    verts = [
+        (0.0, 0.0), (0.30, 0.0), (0.32, 0.15), (0.30, 0.55),
+        (0.25, 0.60), (0.15, 0.63), (0.08, 0.60), (0.0, 0.55),
+        (-0.02, 0.15),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 0),
+    ]
+    return _make_piece("wrap_dress_right", verts, edges)
+
+
+# ---------- Cargo Shorts Template ----------
+
+def _cargo_shorts_front() -> PatternPiece:
+    """Front leg panel for cargo shorts."""
+    verts = [
+        (0.0, 0.0), (0.17, 0.0), (0.18, 0.15), (0.20, 0.20),
+        (0.20, 0.35), (0.16, 0.37), (0.06, 0.37), (0.0, 0.35),
+        (0.0, 0.20), (-0.02, 0.15),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 0),
+    ]
+    return _make_piece("cargo_shorts_front", verts, edges)
+
+
+def _cargo_shorts_back() -> PatternPiece:
+    """Back leg panel for cargo shorts."""
+    verts = [
+        (0.0, 0.0), (0.18, 0.0), (0.20, 0.15), (0.22, 0.20),
+        (0.22, 0.35), (0.17, 0.38), (0.06, 0.38), (0.0, 0.35),
+        (0.0, 0.20), (-0.02, 0.15),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 0),
+    ]
+    return _make_piece("cargo_shorts_back", verts, edges)
+
+
+# ---------- Blazer Template ----------
+
+def _blazer_front() -> PatternPiece:
+    """Front panel of a blazer."""
+    verts = [
+        (0.0, 0.0), (0.30, 0.0), (0.30, 0.05), (0.35, 0.12),
+        (0.35, 0.52), (0.30, 0.57), (0.20, 0.60), (0.15, 0.60),
+        (0.10, 0.60), (0.0, 0.57), (-0.05, 0.52), (-0.05, 0.12),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("blazer_front", verts, edges)
+
+
+def _blazer_back() -> PatternPiece:
+    """Back panel of a blazer."""
+    verts = [
+        (0.0, 0.0), (0.32, 0.0), (0.32, 0.05), (0.36, 0.12),
+        (0.36, 0.52), (0.32, 0.57), (0.22, 0.61), (0.16, 0.62),
+        (0.10, 0.61), (0.0, 0.57), (-0.04, 0.52), (-0.04, 0.12),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("blazer_back", verts, edges)
+
+
+def _blazer_sleeve() -> PatternPiece:
+    """Long sleeve for a blazer."""
+    verts = [
+        (0.0, 0.0), (0.19, 0.0), (0.21, 0.05), (0.20, 0.40),
+        (0.15, 0.42), (0.04, 0.42), (0.0, 0.40), (-0.02, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0),
+    ]
+    return _make_piece("blazer_sleeve", verts, edges)
+
+
+def _blazer_lapel() -> PatternPiece:
+    """Lapel piece for a blazer."""
+    verts = [
+        (0.0, 0.0), (0.08, 0.0), (0.10, 0.12), (0.06, 0.18),
+        (0.0, 0.16),
+    ]
+    edges = [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)]
+    return _make_piece("blazer_lapel", verts, edges)
+
+
+# ---------- Vest Template ----------
+
+def _vest_front() -> PatternPiece:
+    """Front panel of a vest."""
+    verts = [
+        (0.0, 0.0), (0.22, 0.0), (0.22, 0.05), (0.24, 0.10),
+        (0.24, 0.38), (0.20, 0.42), (0.14, 0.44), (0.08, 0.44),
+        (0.04, 0.42), (0.0, 0.38), (-0.02, 0.10), (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 0),
+    ]
+    return _make_piece("vest_front", verts, edges)
+
+
+def _vest_back() -> PatternPiece:
+    """Back panel of a vest."""
+    verts = [
+        (0.0, 0.0), (0.22, 0.0), (0.22, 0.05), (0.24, 0.10),
+        (0.24, 0.38), (0.20, 0.42), (0.14, 0.45), (0.08, 0.45),
+        (0.04, 0.42), (0.0, 0.38), (-0.02, 0.10), (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 0),
+    ]
+    return _make_piece("vest_back", verts, edges)
+
+
+# ---------- Jumpsuit Template ----------
+
+def _jumpsuit_bodice() -> PatternPiece:
+    """Bodice/torso panel for a jumpsuit."""
+    verts = [
+        (0.0, 0.0), (0.28, 0.0), (0.28, 0.05), (0.30, 0.10),
+        (0.30, 0.40), (0.26, 0.44), (0.18, 0.46), (0.14, 0.46),
+        (0.08, 0.46), (0.0, 0.44), (-0.02, 0.40), (-0.02, 0.10),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("jumpsuit_bodice", verts, edges)
+
+
+def _jumpsuit_leg() -> PatternPiece:
+    """Leg panel for a jumpsuit."""
+    verts = [
+        (0.0, 0.0), (0.15, 0.0), (0.16, 0.30), (0.18, 0.35),
+        (0.18, 0.65), (0.14, 0.67), (0.06, 0.67), (0.0, 0.65),
+        (0.0, 0.35), (-0.02, 0.30),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 0),
+    ]
+    return _make_piece("jumpsuit_leg", verts, edges)
+
+
+# ---------- Kimono Template ----------
+
+def _kimono_body() -> PatternPiece:
+    """Main body panel of a kimono."""
+    verts = [
+        (0.0, 0.0), (0.40, 0.0), (0.40, 0.05), (0.42, 0.10),
+        (0.42, 0.70), (0.38, 0.75), (0.25, 0.78), (0.20, 0.78),
+        (0.15, 0.78), (0.0, 0.75), (-0.02, 0.70), (-0.02, 0.10),
+        (0.0, 0.05),
+    ]
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6),
+        (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 0),
+    ]
+    return _make_piece("kimono_body", verts, edges)
+
+
+def _kimono_sleeve() -> PatternPiece:
+    """Wide rectangular sleeve for a kimono."""
+    verts = [
+        (0.0, 0.0), (0.30, 0.0), (0.30, 0.28), (0.0, 0.28),
+    ]
+    edges = [(0, 1), (1, 2), (2, 3), (3, 0)]
+    return _make_piece("kimono_sleeve", verts, edges)
+
+
+def _kimono_obi() -> PatternPiece:
+    """Obi (belt sash) for a kimono."""
+    verts = [
+        (0.0, 0.0), (0.50, 0.0), (0.50, 0.10), (0.0, 0.10),
+    ]
+    edges = [(0, 1), (1, 2), (2, 3), (3, 0)]
+    return _make_piece("kimono_obi", verts, edges)
+
+
 # ---------- Preset Registry ----------
 
 class GarmentPreset:
@@ -404,6 +813,129 @@ def _dress_seams(collection: PatternCollection) -> SeamCollection:
     return seams
 
 
+def _cardigan_pieces() -> List[PatternPiece]:
+    return [_cardigan_left_front(), _cardigan_back(), _cardigan_sleeve()]
+
+
+def _cardigan_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("cardigan_left_front", [4, 5], "cardigan_back", [4, 5])
+    seams.add_seam("cardigan_left_front", [7, 8], "cardigan_back", [9, 10])
+    seams.add_seam("cardigan_back", [3, 4], "cardigan_sleeve", [5, 6])
+    return seams
+
+
+def _crop_top_pieces() -> List[PatternPiece]:
+    return [_crop_top_front(), _crop_top_back()]
+
+
+def _crop_top_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("crop_top_front", [4, 5], "crop_top_back", [4, 5])
+    seams.add_seam("crop_top_front", [9, 10], "crop_top_back", [9, 10])
+    return seams
+
+
+def _pencil_skirt_pieces() -> List[PatternPiece]:
+    return [_pencil_skirt_front(), _pencil_skirt_back()]
+
+
+def _pencil_skirt_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("pencil_skirt_front", [1, 2, 3], "pencil_skirt_back", [1, 2, 3])
+    seams.add_seam("pencil_skirt_front", [7, 8], "pencil_skirt_back", [7, 8])
+    return seams
+
+
+def _trench_pieces() -> List[PatternPiece]:
+    return [_trench_front(), _trench_back(), _trench_sleeve()]
+
+
+def _trench_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("trench_front", [4, 5], "trench_back", [4, 5])
+    seams.add_seam("trench_front", [10, 11], "trench_back", [10, 11])
+    seams.add_seam("trench_front", [3, 4], "trench_sleeve", [5, 6])
+    return seams
+
+
+def _polo_pieces() -> List[PatternPiece]:
+    return [_polo_front(), _polo_back(), _polo_sleeve(), _polo_collar()]
+
+
+def _polo_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("polo_front", [4, 5], "polo_back", [4, 5])
+    seams.add_seam("polo_front", [10, 11], "polo_back", [10, 11])
+    seams.add_seam("polo_front", [3, 4], "polo_sleeve", [5, 6])
+    seams.add_seam("polo_back", [5, 6, 7, 8], "polo_collar", [0, 1, 2, 3])
+    return seams
+
+
+def _wrap_dress_pieces() -> List[PatternPiece]:
+    return [_wrap_dress_left(), _wrap_dress_right()]
+
+
+def _wrap_dress_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("wrap_dress_left", [3, 4], "wrap_dress_right", [3, 4])
+    return seams
+
+
+def _cargo_shorts_pieces() -> List[PatternPiece]:
+    return [_cargo_shorts_front(), _cargo_shorts_back()]
+
+
+def _cargo_shorts_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("cargo_shorts_front", [1, 2, 3], "cargo_shorts_back", [1, 2, 3])
+    seams.add_seam("cargo_shorts_front", [8, 9], "cargo_shorts_back", [8, 9])
+    return seams
+
+
+def _blazer_pieces() -> List[PatternPiece]:
+    return [_blazer_front(), _blazer_back(), _blazer_sleeve(), _blazer_lapel()]
+
+
+def _blazer_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("blazer_front", [4, 5], "blazer_back", [4, 5])
+    seams.add_seam("blazer_front", [10, 11], "blazer_back", [10, 11])
+    seams.add_seam("blazer_front", [3, 4], "blazer_sleeve", [5, 6])
+    return seams
+
+
+def _vest_pieces() -> List[PatternPiece]:
+    return [_vest_front(), _vest_back()]
+
+
+def _vest_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("vest_front", [4, 5], "vest_back", [4, 5])
+    seams.add_seam("vest_front", [9, 10], "vest_back", [9, 10])
+    return seams
+
+
+def _jumpsuit_pieces() -> List[PatternPiece]:
+    return [_jumpsuit_bodice(), _jumpsuit_leg()]
+
+
+def _jumpsuit_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("jumpsuit_bodice", [0, 1], "jumpsuit_leg", [4, 5])
+    return seams
+
+
+def _kimono_pieces() -> List[PatternPiece]:
+    return [_kimono_body(), _kimono_sleeve(), _kimono_obi()]
+
+
+def _kimono_seams(collection: PatternCollection) -> SeamCollection:
+    seams = SeamCollection()
+    seams.add_seam("kimono_body", [3, 4], "kimono_sleeve", [3, 0])
+    return seams
+
+
 # Global preset registry
 GARMENT_PRESETS: Dict[str, GarmentPreset] = {
     "tshirt": GarmentPreset(
@@ -454,6 +986,83 @@ GARMENT_PRESETS: Dict[str, GarmentPreset] = {
         pieces_fn=_bomber_pieces,
         seams_fn=_bomber_seams,
         default_fabric="polyester",
+    ),
+    "cardigan": GarmentPreset(
+        name="Cardigan",
+        description="Open-front cardigan with back panel and long sleeves",
+        pieces_fn=_cardigan_pieces,
+        seams_fn=_cardigan_seams,
+        default_fabric="wool",
+    ),
+    "crop_top": GarmentPreset(
+        name="Crop Top",
+        description="Short cropped top with front and back panels",
+        pieces_fn=_crop_top_pieces,
+        seams_fn=_crop_top_seams,
+        default_fabric="cotton",
+    ),
+    "pencil_skirt": GarmentPreset(
+        name="Pencil Skirt",
+        description="Fitted pencil skirt with front and back panels",
+        pieces_fn=_pencil_skirt_pieces,
+        seams_fn=_pencil_skirt_seams,
+        default_fabric="polyester",
+    ),
+    "trench_coat": GarmentPreset(
+        name="Trench Coat",
+        description="Long trench coat with front, back, and sleeves",
+        pieces_fn=_trench_pieces,
+        seams_fn=_trench_seams,
+        default_fabric="cotton",
+    ),
+    "polo": GarmentPreset(
+        name="Polo Shirt",
+        description="Polo shirt with collar, short sleeves, and placket",
+        pieces_fn=_polo_pieces,
+        seams_fn=_polo_seams,
+        default_fabric="cotton",
+    ),
+    "wrap_dress": GarmentPreset(
+        name="Wrap Dress",
+        description="Wrap-style dress with overlapping front panels",
+        pieces_fn=_wrap_dress_pieces,
+        seams_fn=_wrap_dress_seams,
+        default_fabric="silk",
+    ),
+    "cargo_shorts": GarmentPreset(
+        name="Cargo Shorts",
+        description="Knee-length cargo shorts with front and back leg panels",
+        pieces_fn=_cargo_shorts_pieces,
+        seams_fn=_cargo_shorts_seams,
+        default_fabric="cotton",
+    ),
+    "blazer": GarmentPreset(
+        name="Blazer",
+        description="Tailored blazer with front, back, sleeves, and lapels",
+        pieces_fn=_blazer_pieces,
+        seams_fn=_blazer_seams,
+        default_fabric="wool",
+    ),
+    "vest": GarmentPreset(
+        name="Vest",
+        description="Sleeveless vest with front and back panels",
+        pieces_fn=_vest_pieces,
+        seams_fn=_vest_seams,
+        default_fabric="polyester",
+    ),
+    "jumpsuit": GarmentPreset(
+        name="Jumpsuit",
+        description="One-piece jumpsuit with bodice and full-length legs",
+        pieces_fn=_jumpsuit_pieces,
+        seams_fn=_jumpsuit_seams,
+        default_fabric="cotton",
+    ),
+    "kimono": GarmentPreset(
+        name="Kimono",
+        description="Traditional kimono with wide body, rectangular sleeves, and obi",
+        pieces_fn=_kimono_pieces,
+        seams_fn=_kimono_seams,
+        default_fabric="silk",
     ),
 }
 
