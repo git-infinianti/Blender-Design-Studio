@@ -114,6 +114,19 @@ class BDS_SceneProps(bpy.types.PropertyGroup):
         ],
         default='SMOOTH',
     )
+    brush_preset: EnumProperty(
+        name="Brush Preset",
+        items=[
+            ('default', 'Default', 'General-purpose round brush'),
+            ('soft_airbrush', 'Soft Airbrush', 'Soft, low-opacity airbrush for subtle blending'),
+            ('hard_round', 'Hard Round', 'Crisp-edged brush for precise detail work'),
+            ('fine_detail', 'Fine Detail', 'Small, sharp brush for fine details and lines'),
+            ('broad_fill', 'Broad Fill', 'Large brush for filling wide areas quickly'),
+            ('texture_stamp', 'Texture Stamp', 'Widely spaced stamps for textured effects'),
+            ('smudge_blend', 'Smudge Blend', 'Soft brush optimized for blending transitions'),
+        ],
+        default='default',
+    )
     sim_fabric_preset: EnumProperty(
         name="Fabric Preset",
         items=[

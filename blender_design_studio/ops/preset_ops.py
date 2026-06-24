@@ -16,6 +16,9 @@ class BDS_OT_load_garment_preset(bpy.types.Operator):
             ('skirt', 'A-Line Skirt', 'Four-panel A-line skirt'),
             ('pants', 'Basic Pants', 'Simple straight-leg pants'),
             ('dress', 'Simple Dress', 'A-line dress with bodice and skirt'),
+            ('hoodie', 'Hoodie', 'Hooded sweatshirt with sleeves and hood'),
+            ('tank_top', 'Tank Top', 'Sleeveless tank top'),
+            ('bomber', 'Bomber Jacket', 'Bomber jacket with ribbed collar'),
         ],
         default='tshirt',
     )

@@ -173,6 +173,8 @@ class BDS_PT_brush_settings(bpy.types.Panel):
         layout = self.layout
         scene_props = context.scene.bds
 
+        layout.prop(scene_props, "brush_preset")
+        layout.separator()
         layout.prop(scene_props, "brush_radius")
         layout.prop(scene_props, "brush_strength")
         layout.prop(scene_props, "brush_color")
