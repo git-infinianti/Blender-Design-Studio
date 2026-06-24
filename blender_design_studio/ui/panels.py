@@ -114,19 +114,74 @@ class BDS_PT_simulation_panel(bpy.types.Panel):
 
         layout.prop(scene_props, "sim_fabric_preset")
 
+        # Show custom fabric properties when custom preset is selected
+        if scene_props.sim_fabric_preset == 'custom':
+            box = layout.box()
+            box.label(text="Custom Fabric Properties:")
+            col = box.column(align=True)
+            col.prop(scene_props, "sim_custom_mass")
+            col.prop(scene_props, "sim_custom_stiffness")
+            col.prop(scene_props, "sim_custom_damping")
+            col.prop(scene_props, "sim_custom_bending")
+
         layout.separator()
 
         col = layout.column(align=True)
         col.operator("bds.sim_setup", text="Setup Simulation", icon='MOD_CLOTH')
 
         row = layout.row(align=True)
+        if scene_props.sim_is_running and not scene_props.sim_is_paused:
+            row.enabled = False
         row.operator("bds.sim_start", text="Start", icon='PLAY')
-        row.operator("bds.sim_pause", text="Pause", icon='PAUSE')
+
+        row = layout.row(align=True)
+        if not scene_props.sim_is_running:
+            row.enabled = False
+        pause_text = "Resume" if scene_props.sim_is_paused else "Pause"
+        pause_icon = 'PLAY' if scene_props.sim_is_paused else 'PAUSE'
+        row.operator("bds.sim_pause", text=pause_text, icon=pause_icon)
 
         col = layout.column(align=True)
         col.operator("bds.sim_reset", text="Reset", icon='REW')
         col.operator("bds.sim_bake", text="Bake", icon='REC')
         col.operator("bds.apply_drape", text="Apply Drape", icon='CHECKMARK')
+
+
+class BDS_PT_garment_tools_panel(bpy.types.Panel):
+    """Garment creation tools and presets"""
+
+    bl_label = "Garment Tools"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = 'BDS'
+    bl_parent_id = "BDS_PT_main_panel"
+
+    @classmethod
+    def poll(cls, context):
+        return context.scene.bds.mode == 'DRAPE'
+
+    def draw(self, context):
+        layout = self.layout
+
+        layout.label(text="Garment Presets:")
+        col = layout.column(align=True)
+        col.operator("bds.load_garment_preset", text="Load Garment Preset", icon='OUTLINER_OB_ARMATURE')
+        col.operator("bds.quick_fabric_assign", text="Quick Fabric Assign", icon='MOD_CLOTH')
+
+        layout.separator()
+
+        layout.label(text="Pattern Pieces:")
+        col = layout.column(align=True)
+        col.operator("bds.create_pattern", text="Create Pattern Piece", icon='MESH_PLANE')
+        col.operator("bds.import_pattern", text="Import SVG/DXF", icon='IMPORT')
+
+        layout.separator()
+
+        layout.label(text="Seam Tools:")
+        col = layout.column(align=True)
+        col.operator("bds.select_seam_edge", text="Select Seam Edge", icon='EDGESEL')
+        col.operator("bds.stitch_seams", text="Stitch Seams", icon='MOD_MESHDEFORM')
+        col.operator("bds.auto_seam", text="Auto Seam", icon='SNAP_MIDPOINT')
 
 
 class BDS_PT_paint_panel(bpy.types.Panel):
@@ -270,6 +325,18 @@ class BDS_PT_smart_material_panel(bpy.types.Panel):
         col.label(text="• Aged Wood", icon='MATERIAL')
         col.label(text="• Clean Plastic", icon='MATERIAL')
         col.label(text="• Fabric", icon='MATERIAL')
+        col.label(text="• Brushed Steel", icon='MATERIAL')
+        col.label(text="• Rusted Iron", icon='MATERIAL')
+        col.label(text="• Polished Marble", icon='MATERIAL')
+        col.label(text="• Worn Leather", icon='MATERIAL')
+        col.label(text="• Concrete", icon='MATERIAL')
+        col.label(text="• Ceramic Tile", icon='MATERIAL')
+        col.label(text="• Carbon Fiber", icon='MATERIAL')
+        col.label(text="• Velvet", icon='MATERIAL')
+        col.label(text="• Hammered Copper", icon='MATERIAL')
+        col.label(text="• Frosted Glass", icon='MATERIAL')
+        col.label(text="• Raw Denim", icon='MATERIAL')
+        col.label(text="• Patent Leather", icon='MATERIAL')
 
 
 class BDS_PT_bake_panel(bpy.types.Panel):

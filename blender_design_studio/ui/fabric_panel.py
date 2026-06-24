@@ -20,10 +20,17 @@ class BDS_PT_fabric_inspector(bpy.types.Panel):
         scene_props = context.scene.bds
         preset = scene_props.sim_fabric_preset
 
-        from ..core.fabric import FABRIC_PRESETS
-        if preset in FABRIC_PRESETS:
-            props = FABRIC_PRESETS[preset]
-            layout.label(text=f"Mass: {props['mass']} kg/m²")
-            layout.label(text=f"Stiffness: {props['stiffness']}")
-            layout.label(text=f"Damping: {props['damping']}")
-            layout.label(text=f"Bending: {props['bending']}")
+        if preset == 'custom':
+            layout.label(text="Custom fabric – edit values above")
+            layout.label(text=f"Mass: {scene_props.sim_custom_mass:.3f} kg/m²")
+            layout.label(text=f"Stiffness: {scene_props.sim_custom_stiffness:.1f}")
+            layout.label(text=f"Damping: {scene_props.sim_custom_damping:.1f}")
+            layout.label(text=f"Bending: {scene_props.sim_custom_bending:.2f}")
+        else:
+            from ..core.fabric import FABRIC_PRESETS
+            if preset in FABRIC_PRESETS:
+                props = FABRIC_PRESETS[preset]
+                layout.label(text=f"Mass: {props['mass']} kg/m²")
+                layout.label(text=f"Stiffness: {props['stiffness']}")
+                layout.label(text=f"Damping: {props['damping']}")
+                layout.label(text=f"Bending: {props['bending']}")

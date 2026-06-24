@@ -148,8 +148,47 @@ class BDS_SceneProps(bpy.types.PropertyGroup):
             ('wool', 'Wool', 'Medium weight wool'),
             ('polyester', 'Polyester', 'Synthetic polyester'),
             ('linen', 'Linen', 'Natural linen'),
+            ('custom', 'Custom', 'User-defined custom fabric properties'),
         ],
         default='cotton',
+    )
+    sim_custom_mass: FloatProperty(
+        name="Mass",
+        description="Fabric mass in kg/m²",
+        default=0.15,
+        min=0.01,
+        max=2.0,
+    )
+    sim_custom_stiffness: FloatProperty(
+        name="Stiffness",
+        description="Structural stiffness of the fabric",
+        default=15.0,
+        min=0.1,
+        max=200.0,
+    )
+    sim_custom_damping: FloatProperty(
+        name="Damping",
+        description="Damping factor for simulation stability",
+        default=5.0,
+        min=0.0,
+        max=50.0,
+    )
+    sim_custom_bending: FloatProperty(
+        name="Bending",
+        description="Bending stiffness of the fabric",
+        default=0.5,
+        min=0.0,
+        max=50.0,
+    )
+    sim_is_running: BoolProperty(
+        name="Simulation Running",
+        description="Whether the simulation is currently running",
+        default=False,
+    )
+    sim_is_paused: BoolProperty(
+        name="Simulation Paused",
+        description="Whether the simulation is paused",
+        default=False,
     )
     bake_resolution: IntProperty(
         name="Bake Resolution",

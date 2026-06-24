@@ -116,6 +116,116 @@ class SmartMaterialLibrary:
         fabric_cloth.edge_wear_color = (0.7, 0.7, 0.75)
         self.materials["fabric"] = fabric_cloth
 
+        brushed_steel = SmartMaterial("Brushed Steel")
+        brushed_steel.base_color = (0.55, 0.56, 0.58)
+        brushed_steel.metallic = 1.0
+        brushed_steel.roughness = 0.35
+        brushed_steel.use_curvature_mask = True
+        brushed_steel.use_ao_mask = True
+        brushed_steel.edge_wear_color = (0.7, 0.72, 0.75)
+        brushed_steel.cavity_color = (0.2, 0.2, 0.22)
+        self.materials["brushed_steel"] = brushed_steel
+
+        rusted_iron = SmartMaterial("Rusted Iron")
+        rusted_iron.base_color = (0.35, 0.18, 0.08)
+        rusted_iron.metallic = 0.6
+        rusted_iron.roughness = 0.8
+        rusted_iron.use_curvature_mask = True
+        rusted_iron.use_ao_mask = True
+        rusted_iron.edge_wear_color = (0.5, 0.25, 0.1)
+        rusted_iron.cavity_color = (0.12, 0.06, 0.02)
+        self.materials["rusted_iron"] = rusted_iron
+
+        polished_marble = SmartMaterial("Polished Marble")
+        polished_marble.base_color = (0.9, 0.88, 0.85)
+        polished_marble.metallic = 0.0
+        polished_marble.roughness = 0.1
+        polished_marble.use_ao_mask = True
+        polished_marble.cavity_color = (0.6, 0.58, 0.55)
+        self.materials["polished_marble"] = polished_marble
+
+        worn_leather = SmartMaterial("Worn Leather")
+        worn_leather.base_color = (0.35, 0.2, 0.1)
+        worn_leather.metallic = 0.0
+        worn_leather.roughness = 0.6
+        worn_leather.use_curvature_mask = True
+        worn_leather.use_ao_mask = True
+        worn_leather.edge_wear_color = (0.5, 0.35, 0.2)
+        worn_leather.cavity_color = (0.15, 0.08, 0.04)
+        self.materials["worn_leather"] = worn_leather
+
+        concrete = SmartMaterial("Concrete")
+        concrete.base_color = (0.55, 0.53, 0.5)
+        concrete.metallic = 0.0
+        concrete.roughness = 0.9
+        concrete.use_ao_mask = True
+        concrete.use_curvature_mask = True
+        concrete.edge_wear_color = (0.65, 0.63, 0.6)
+        concrete.cavity_color = (0.3, 0.28, 0.25)
+        self.materials["concrete"] = concrete
+
+        ceramic_tile = SmartMaterial("Ceramic Tile")
+        ceramic_tile.base_color = (0.85, 0.85, 0.9)
+        ceramic_tile.metallic = 0.0
+        ceramic_tile.roughness = 0.15
+        ceramic_tile.use_ao_mask = True
+        ceramic_tile.cavity_color = (0.4, 0.4, 0.42)
+        self.materials["ceramic_tile"] = ceramic_tile
+
+        carbon_fiber = SmartMaterial("Carbon Fiber")
+        carbon_fiber.base_color = (0.02, 0.02, 0.02)
+        carbon_fiber.metallic = 0.3
+        carbon_fiber.roughness = 0.35
+        carbon_fiber.use_curvature_mask = True
+        carbon_fiber.edge_wear_color = (0.15, 0.15, 0.15)
+        self.materials["carbon_fiber"] = carbon_fiber
+
+        velvet = SmartMaterial("Velvet")
+        velvet.base_color = (0.25, 0.05, 0.1)
+        velvet.metallic = 0.0
+        velvet.roughness = 0.95
+        velvet.use_curvature_mask = True
+        velvet.edge_wear_color = (0.4, 0.15, 0.2)
+        self.materials["velvet"] = velvet
+
+        hammered_copper = SmartMaterial("Hammered Copper")
+        hammered_copper.base_color = (0.7, 0.4, 0.2)
+        hammered_copper.metallic = 1.0
+        hammered_copper.roughness = 0.5
+        hammered_copper.use_curvature_mask = True
+        hammered_copper.use_ao_mask = True
+        hammered_copper.edge_wear_color = (0.3, 0.5, 0.35)
+        hammered_copper.cavity_color = (0.3, 0.15, 0.05)
+        self.materials["hammered_copper"] = hammered_copper
+
+        frosted_glass = SmartMaterial("Frosted Glass")
+        frosted_glass.base_color = (0.9, 0.92, 0.95)
+        frosted_glass.metallic = 0.0
+        frosted_glass.roughness = 0.4
+        frosted_glass.use_ao_mask = True
+        frosted_glass.cavity_color = (0.7, 0.72, 0.75)
+        self.materials["frosted_glass"] = frosted_glass
+
+        raw_denim = SmartMaterial("Raw Denim")
+        raw_denim.base_color = (0.1, 0.12, 0.25)
+        raw_denim.metallic = 0.0
+        raw_denim.roughness = 0.8
+        raw_denim.use_curvature_mask = True
+        raw_denim.use_ao_mask = True
+        raw_denim.edge_wear_color = (0.3, 0.35, 0.5)
+        raw_denim.cavity_color = (0.05, 0.05, 0.12)
+        self.materials["raw_denim"] = raw_denim
+
+        patent_leather = SmartMaterial("Patent Leather")
+        patent_leather.base_color = (0.01, 0.01, 0.01)
+        patent_leather.metallic = 0.0
+        patent_leather.roughness = 0.05
+        patent_leather.use_curvature_mask = True
+        patent_leather.use_ao_mask = True
+        patent_leather.edge_wear_color = (0.15, 0.15, 0.15)
+        patent_leather.cavity_color = (0.0, 0.0, 0.0)
+        self.materials["patent_leather"] = patent_leather
+
     def get(self, name: str) -> Optional[SmartMaterial]:
         """Get a smart material by name."""
         return self.materials.get(name)

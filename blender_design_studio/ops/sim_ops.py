@@ -1,6 +1,6 @@
 """Simulation control operators for cloth draping."""
 import bpy
-from bpy.props import EnumProperty, IntProperty
+from bpy.props import EnumProperty, IntProperty, FloatProperty
 
 
 class BDS_OT_sim_setup(bpy.types.Operator):
@@ -18,10 +18,20 @@ class BDS_OT_sim_setup(bpy.types.Operator):
         scene_props = context.scene.bds
         preset = scene_props.sim_fabric_preset
 
-        from ..core.fabric import FabricMaterial
+        from ..core.fabric import FabricMaterial, FABRIC_PRESETS
         from ..core.simulation import SimulationController
 
-        fabric = FabricMaterial(preset)
+        if preset == 'custom':
+            # Use custom fabric properties from scene
+            fabric = FabricMaterial.__new__(FabricMaterial)
+            fabric.preset_name = 'custom'
+            fabric.mass = scene_props.sim_custom_mass
+            fabric.structural_stiffness = scene_props.sim_custom_stiffness
+            fabric.damping = scene_props.sim_custom_damping
+            fabric.bending_stiffness = scene_props.sim_custom_bending
+        else:
+            fabric = FabricMaterial(preset)
+
         sim = SimulationController(obj)
 
         avatar = None
@@ -44,8 +54,34 @@ class BDS_OT_sim_start(bpy.types.Operator):
     bl_options = {'REGISTER'}
 
     _timer = None
+    _is_paused = False
 
     def modal(self, context, event):
+        scene_props = context.scene.bds
+
+        # Check if pause was requested
+        if scene_props.sim_is_paused:
+            if not self._is_paused:
+                # Transition to paused state: remove timer
+                self._is_paused = True
+                if self._timer:
+                    context.window_manager.event_timer_remove(self._timer)
+                    self._timer = None
+                context.area.header_text_set(
+                    "Simulation Paused | ESC: Stop"
+                )
+            return {'PASS_THROUGH'}
+        else:
+            if self._is_paused:
+                # Resume from paused state: re-add timer
+                self._is_paused = False
+                self._timer = context.window_manager.event_timer_add(
+                    1.0 / 30.0, window=context.window
+                )
+                context.area.header_text_set(
+                    "Simulation Running | ESC: Stop"
+                )
+
         if event.type == 'TIMER':
             context.scene.frame_set(context.scene.frame_current + 1)
             context.area.tag_redraw()
@@ -55,6 +91,10 @@ class BDS_OT_sim_start(bpy.types.Operator):
         return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
+        scene_props = context.scene.bds
+        scene_props.sim_is_paused = False
+        scene_props.sim_is_running = True
+
         context.area.header_text_set(
             "Simulation Running | ESC: Stop"
         )
@@ -62,6 +102,7 @@ class BDS_OT_sim_start(bpy.types.Operator):
             1.0 / 30.0, window=context.window
         )
         context.window_manager.modal_handler_add(self)
+        self._is_paused = False
         self.report({'INFO'}, "Simulation started")
         return {'RUNNING_MODAL'}
 
@@ -70,17 +111,28 @@ class BDS_OT_sim_start(bpy.types.Operator):
             context.window_manager.event_timer_remove(self._timer)
             self._timer = None
         context.area.header_text_set(None)
+        context.scene.bds.sim_is_running = False
+        context.scene.bds.sim_is_paused = False
         self.report({'INFO'}, "Simulation stopped")
 
 
 class BDS_OT_sim_pause(bpy.types.Operator):
-    """Pause the cloth simulation"""
+    """Pause or resume the cloth simulation"""
     bl_idname = "bds.sim_pause"
     bl_label = "Pause Simulation"
     bl_options = {'REGISTER'}
 
     def execute(self, context):
-        self.report({'INFO'}, "Simulation paused")
+        scene_props = context.scene.bds
+        if not scene_props.sim_is_running:
+            self.report({'WARNING'}, "No simulation is running")
+            return {'CANCELLED'}
+
+        scene_props.sim_is_paused = not scene_props.sim_is_paused
+        if scene_props.sim_is_paused:
+            self.report({'INFO'}, "Simulation paused")
+        else:
+            self.report({'INFO'}, "Simulation resumed")
         return {'FINISHED'}
 
 
@@ -92,6 +144,8 @@ class BDS_OT_sim_reset(bpy.types.Operator):
 
     def execute(self, context):
         context.scene.frame_set(1)
+        context.scene.bds.sim_is_running = False
+        context.scene.bds.sim_is_paused = False
 
         obj = context.active_object
         if obj is not None and obj.type == 'MESH':
