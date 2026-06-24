@@ -1,5 +1,6 @@
 """2D Pattern Editor mode toggle and viewport configuration."""
 import bpy
+from mathutils import Quaternion
 
 
 class BDS_OT_enter_pattern_mode(bpy.types.Operator):
@@ -21,7 +22,7 @@ class BDS_OT_enter_pattern_mode(bpy.types.Operator):
 
         if rv3d.view_perspective != 'ORTHO':
             rv3d.view_perspective = 'ORTHO'
-            rv3d.view_rotation = (1, 0, 0, 0)
+            rv3d.view_rotation = Quaternion((1, 0, 0, 0))
             context.scene.bds.mode = 'PATTERN'
             self.report({'INFO'}, "Entered Pattern Mode (2D)")
         else:

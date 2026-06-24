@@ -1,11 +1,13 @@
 bl_info = {
     "name": "Blender Design Studio",
-    "author": "Your Name",
-    "version": (0, 1, 0),
-    "blender": (3, 0, 0),
-    "location": "View3D > Tool Shelf",
-    "description": "Cloth patterning + UDIM-aware painting workflows",
+    "author": "Blender Design Studio Contributors",
+    "version": (1, 0, 0),
+    "blender": (4, 2, 0),
+    "location": "View3D > Sidebar > BDS",
+    "description": "Cloth patterning, garment simulation, and UDIM-aware PBR texture painting",
     "category": "Object",
+    "doc_url": "https://github.com/git-infinianti/Blender-Design-Studio",
+    "tracker_url": "https://github.com/git-infinianti/Blender-Design-Studio/issues",
 }
 
 import bpy
@@ -43,6 +45,9 @@ from .ops import (
     BDS_OT_bake_textures,
     BDS_OT_export_textures,
     BDS_OT_export_pattern,
+    BDS_OT_load_garment_preset,
+    BDS_OT_batch_export_textures,
+    BDS_OT_quick_fabric_assign,
 )
 from .props import (
     BDS_SceneProps,
@@ -125,6 +130,10 @@ classes = (
     BDS_OT_bake_textures,
     BDS_OT_export_textures,
     BDS_OT_export_pattern,
+    # Preset and utility operators
+    BDS_OT_load_garment_preset,
+    BDS_OT_batch_export_textures,
+    BDS_OT_quick_fabric_assign,
     # UI mode operator
     BDS_OT_enter_pattern_mode,
     # UI panels (parent panels before child panels)

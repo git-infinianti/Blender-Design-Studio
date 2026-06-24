@@ -43,6 +43,11 @@ from .bake_ops import (
 from .import_export_ops import (
     BDS_OT_export_pattern,
 )
+from .preset_ops import (
+    BDS_OT_load_garment_preset,
+    BDS_OT_batch_export_textures,
+    BDS_OT_quick_fabric_assign,
+)
 
 __all__ = (
     "BDS_OT_create_pattern",
@@ -76,4 +81,7 @@ __all__ = (
     "BDS_OT_bake_textures",
     "BDS_OT_export_textures",
     "BDS_OT_export_pattern",
+    "BDS_OT_load_garment_preset",
+    "BDS_OT_batch_export_textures",
+    "BDS_OT_quick_fabric_assign",
 )
