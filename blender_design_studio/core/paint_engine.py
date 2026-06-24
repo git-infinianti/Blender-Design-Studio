@@ -55,6 +55,85 @@ class BrushSettings:
         return b
 
 
+# ---------- Brush Presets ----------
+
+BRUSH_PRESETS = {
+    "default": {
+        "name": "Default",
+        "description": "General-purpose round brush",
+        "radius": 50,
+        "strength": 1.0,
+        "falloff": "SMOOTH",
+        "spacing": 0.1,
+    },
+    "soft_airbrush": {
+        "name": "Soft Airbrush",
+        "description": "Soft, low-opacity airbrush for subtle blending",
+        "radius": 100,
+        "strength": 0.15,
+        "falloff": "SMOOTH",
+        "spacing": 0.05,
+    },
+    "hard_round": {
+        "name": "Hard Round",
+        "description": "Crisp-edged brush for precise detail work",
+        "radius": 30,
+        "strength": 1.0,
+        "falloff": "CONSTANT",
+        "spacing": 0.08,
+    },
+    "fine_detail": {
+        "name": "Fine Detail",
+        "description": "Small, sharp brush for fine details and lines",
+        "radius": 10,
+        "strength": 0.9,
+        "falloff": "SHARP",
+        "spacing": 0.05,
+    },
+    "broad_fill": {
+        "name": "Broad Fill",
+        "description": "Large brush for filling wide areas quickly",
+        "radius": 200,
+        "strength": 0.8,
+        "falloff": "LINEAR",
+        "spacing": 0.15,
+    },
+    "texture_stamp": {
+        "name": "Texture Stamp",
+        "description": "Widely spaced stamps for textured effects",
+        "radius": 60,
+        "strength": 0.7,
+        "falloff": "SHARP",
+        "spacing": 0.5,
+    },
+    "smudge_blend": {
+        "name": "Smudge Blend",
+        "description": "Soft brush optimized for blending transitions",
+        "radius": 80,
+        "strength": 0.3,
+        "falloff": "SMOOTH",
+        "spacing": 0.04,
+    },
+}
+
+
+def apply_brush_preset(brush: BrushSettings, preset_key: str) -> None:
+    """Apply a brush preset to the given BrushSettings instance."""
+    preset = BRUSH_PRESETS.get(preset_key)
+    if preset is None:
+        raise ValueError(f"Unknown brush preset: {preset_key}")
+    brush.radius = preset["radius"]
+    brush.strength = preset["strength"]
+    brush.falloff = preset["falloff"]
+    brush.spacing = preset["spacing"]
+
+
+def get_brush_preset_names():
+    """Return brush preset names formatted for Blender EnumProperty items."""
+    return [(key, p["name"], p["description"])
+            for key, p in BRUSH_PRESETS.items()]
+
+
 class PaintStroke:
     """Records a single continuous stroke for undo/redo."""
 

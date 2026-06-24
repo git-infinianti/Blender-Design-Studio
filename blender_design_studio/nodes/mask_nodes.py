@@ -30,7 +30,7 @@ if HAS_BPY:
 
         bl_idname = 'BDS_NT_ColorRamp'
         bl_label = 'BDS Color Ramp'
-        bl_icon = 'COLORBAND_DATA'
+        bl_icon = 'COLOR'
 
         def init(self, context):
             self.inputs.new('NodeSocketColor', 'Input')
