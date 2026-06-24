@@ -1,0 +1,21 @@
+schema_version = "1.0.0"
+
+id = "blender_design_studio"
+version = "1.0.0"
+name = "Blender Design Studio"
+tagline = "Cloth patterning, garment simulation, and UDIM-aware PBR texture painting"
+maintainer = "Blender Design Studio Contributors"
+type = "add-on"
+
+website = "https://github.com/git-infinianti/Blender-Design-Studio"
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["Object", "Material", "Mesh", "Paint", "UV"]
+
+# Optional dependencies that enhance functionality
+# Users should install: numpy, triangle, scipy, Pillow
+# into Blender's Python environment for full features
+
+[permissions]
+files = "Import/export pattern files (SVG, DXF) and textures"

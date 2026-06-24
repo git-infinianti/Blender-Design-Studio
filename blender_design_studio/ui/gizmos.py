@@ -31,7 +31,7 @@ class BDS_GGT_seam_handles(bpy.types.GizmoGroup):
     bl_label = "Seam Handles"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'WINDOW'
-    bl_options = {'3D', 'PERSISTENT'}
+    bl_options = {'3D', 'SHOW_MODAL_ALL'}
 
     @classmethod
     def poll(cls, context):

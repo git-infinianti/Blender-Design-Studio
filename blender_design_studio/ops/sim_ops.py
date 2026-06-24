@@ -55,7 +55,7 @@ class BDS_OT_sim_start(bpy.types.Operator):
         return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
-        context.workspace.status_text_set(
+        context.area.header_text_set(
             "Simulation Running | ESC: Stop"
         )
         self._timer = context.window_manager.event_timer_add(
@@ -69,7 +69,7 @@ class BDS_OT_sim_start(bpy.types.Operator):
         if self._timer:
             context.window_manager.event_timer_remove(self._timer)
             self._timer = None
-        context.workspace.status_text_set(None)
+        context.area.header_text_set(None)
         self.report({'INFO'}, "Simulation stopped")
 
 

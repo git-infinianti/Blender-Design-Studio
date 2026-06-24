@@ -8,6 +8,7 @@ from .layer_stack import PaintLayer, LayerStack
 from .bake import BakeManager
 from .udim import UDIMTileSet
 from .smart_material import SmartMaterial, SmartMaterialLibrary
+from .garment_presets import GarmentPreset, GARMENT_PRESETS, load_preset
 
 __all__ = (
     "PatternPiece",
@@ -26,4 +27,7 @@ __all__ = (
     "UDIMTileSet",
     "SmartMaterial",
     "SmartMaterialLibrary",
+    "GarmentPreset",
+    "GARMENT_PRESETS",
+    "load_preset",
 )
