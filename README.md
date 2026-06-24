@@ -1,19 +1,38 @@
-# Blender Design Studio — Implementation Plan
+# Blender Design Studio
 
 > A comprehensive Blender addon replicating the core functionality of **Marvelous Designer Pro** (3D clothing/fabric design) and **Substance Painter** (3D texture painting) within Blender's native environment.
 
+## Installation
+
+1. Download or clone this repository.
+2. In Blender, go to **Edit → Preferences → Add-ons → Install**.
+3. Navigate to the `blender_design_studio/` directory and select `__init__.py`.
+4. Enable the addon by checking the checkbox next to **Blender Design Studio**.
+5. The addon panel appears in the 3D Viewport sidebar under the **BDS** tab.
+
+### Optional Dependencies
+
+For full functionality, install these Python packages into Blender's Python environment:
+
+```bash
+# From Blender's Python directory:
+pip install numpy triangle scipy Pillow
+```
+
+`numpy` is typically bundled with Blender. The addon gracefully degrades when optional libraries are not available.
+
 ---
+
+## Architecture
 
 ## 1. Feature Overview
 
 Blender Design Studio (BDS) bridges two major creative pipelines into a single Blender addon:
 
-| Domain | Original Software | Key Capabilities |
+| Domain | Inspired By | Key Capabilities |
 |---|---|---|
 | **Garment Design** | Marvelous Designer Pro | 2D pattern drafting, seam stitching, real-time cloth simulation, garment draping onto avatars, fabric property editing |
 | **Texture Painting** | Substance Painter | Layer-based PBR painting, UDIM-aware workflows, smart materials, procedural masks, texture baking, material channel painting |
-
-The addon already has a minimal scaffold (`blender_design_studio/`) with a `PatternPiece` data model, a placeholder operator, and a single UI panel. This plan expands that into a production-grade tool.
 
 ---
 
@@ -119,7 +138,7 @@ blender_design_studio/
 
 ## 4. Implementation Steps
 
-### Phase 1 — Pattern Drafting & 2D Editor (Weeks 1–3)
+### Phase 1 — Pattern Drafting & 2D Editor
 
 #### Step 1.1: Expand `PatternPiece` Data Model
 
@@ -184,7 +203,7 @@ In `ops/import_export_ops.py`:
 
 ---
 
-### Phase 2 — Seam Stitching & Garment Assembly (Weeks 4–5)
+### Phase 2 — Seam Stitching & Garment Assembly
 
 #### Step 2.1: Seam Data Model
 
@@ -248,7 +267,7 @@ class Garment:
 
 ---
 
-### Phase 3 — Cloth Simulation (Weeks 6–8)
+### Phase 3 — Cloth Simulation
 
 #### Step 3.1: Fabric Material Properties
 
@@ -332,7 +351,7 @@ class SimulationController:
 
 ---
 
-### Phase 4 — Texture Paint Engine (Weeks 9–12)
+### Phase 4 — Texture Paint Engine
 
 #### Step 4.1: Layer Stack System
 
@@ -458,7 +477,7 @@ Create `gpu/paint_preview.py`:
 
 ---
 
-### Phase 5 — UDIM Support (Weeks 13–14)
+### Phase 5 — UDIM Support
 
 #### Step 5.1: UDIM Tile Manager
 
@@ -495,7 +514,7 @@ class UDIMTileSet:
 
 ---
 
-### Phase 6 — Smart Materials & Procedural Masks (Weeks 15–17)
+### Phase 6 — Smart Materials & Procedural Masks
 
 #### Step 6.1: Custom Node Tree
 
@@ -541,7 +560,7 @@ A smart material is a pre-built node graph that, when applied:
 
 ---
 
-### Phase 7 — Texture Baking Pipeline (Week 18)
+### Phase 7 — Texture Baking Pipeline
 
 Create `core/bake.py`:
 
@@ -575,7 +594,7 @@ class BakeManager:
 
 ---
 
-### Phase 8 — UI/UX Polish & Integration (Weeks 19–20)
+### Phase 8 — UI/UX Polish & Integration
 
 #### Panels & Layout
 
@@ -801,7 +820,7 @@ Use `context.workspace.status_text_set("LMB: Paint | RMB: Cancel | F: Resize Bru
 
 ---
 
-## Summary & Milestone Schedule
+## Summary
 
 | Phase | Feature | Key Deliverables |
 |---|---|---|
@@ -814,4 +833,4 @@ Use `context.workspace.status_text_set("LMB: Paint | RMB: Cancel | F: Resize Bru
 | **7** | Baking Pipeline | High→low bake, layer flatten, texture export |
 | **8** | UI/UX Polish | Multi-mode panels, keymaps, pie menus, status hints |
 
-Each phase builds on the previous, with the garment pipeline (Phases 1–3) and paint pipeline (Phases 4–7) converging at Phase 8 for a unified experience.
+The garment pipeline (Phases 1–3) and paint pipeline (Phases 4–7) converge at Phase 8 for a unified experience.
