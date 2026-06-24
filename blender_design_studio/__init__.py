@@ -208,7 +208,15 @@ def unregister_keymaps():
 
 def register():
     for cls in classes:
-        bpy.utils.register_class(cls)
+        try:
+            bpy.utils.register_class(cls)
+        except RuntimeError as e:
+            if "already registered" in str(e):
+                # Handle script reload: unregister then re-register
+                bpy.utils.unregister_class(cls)
+                bpy.utils.register_class(cls)
+            else:
+                raise
     bpy.types.Scene.bds = PointerProperty(type=BDS_SceneProps)
     bpy.types.Object.bds_object = PointerProperty(type=BDS_ObjectProps)
     register_keymaps()
