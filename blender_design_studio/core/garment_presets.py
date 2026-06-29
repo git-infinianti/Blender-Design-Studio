@@ -709,7 +709,7 @@ class GarmentPreset:
         pieces = self._pieces_fn()
         collection = PatternCollection()
         for piece in pieces:
-            collection.add_piece(piece)
+            collection.get_piece(piece)
         seams = self._seams_fn(collection)
         return collection, seams
 
